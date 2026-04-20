@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>嵇康彈奏 - 文本解讀 0415 (完整版)</title>
+    
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 引入 Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- 引入 Font Awesome 圖標 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- 引入 AOS 動畫庫 -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Noto Serif TC', serif;
+            background-color: #f7f5f0;
+            color: #2c2c2c;
+            background-image: radial-gradient(#e5e5e5 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        h1, h2, h3, h4, .artistic-font {
+            font-family: 'Ma Shan Zheng', cursive;
+        }
+
+        /* 自定義滾動條 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+        /* 卡片懸停效果 */
+        .hover-card {
+            transition: all 0.3s ease;
+        }
+        .hover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* 標籤頁過渡 */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- 導航欄 -->
+    <nav class="fixed w-full bg-[#f7f5f0]/95 backdrop-blur-sm z-50 border-b border-gray-300 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-2xl artistic-font text-gray-800">嵇康彈奏</div>
+            <div class="hidden md:flex space-x-6 text-sm font-bold text-gray-600">
+                <a href="#bio" class="hover:text-emerald-700 transition">生平概述</a>
+                <a href="#works" class="hover:text-emerald-700 transition">著作思想</a>
+                <a href="#shishuo" class="hover:text-emerald-700 transition">世說新語</a>
+                <a href="#ji-in-shishuo" class="hover:text-emerald-700 transition">書中形象</a>
+                <a href="#event" class="hover:text-emerald-700 transition">廣陵絕響</a>
+                <a href="#analysis" class="hover:text-emerald-700 transition">文本分析</a>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-gray-600 hover:text-gray-900">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-[#f7f5f0] border-b border-gray-300 p-4 space-y-3">
+            <a href="#bio" class="block text-gray-700">生平概述</a>
+            <a href="#works" class="block text-gray-700">著作思想</a>
+            <a href="#shishuo" class="block text-gray-700">世說新語</a>
+            <a href="#ji-in-shishuo" class="block text-gray-700">書中形象</a>
+            <a href="#event" class="block text-gray-700">廣陵絕響</a>
+            <a href="#analysis" class="block text-gray-700">文本分析</a>
+        </div>
+    </nav>
+
+    <!-- Header / Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center pt-16">
+        <div class="absolute inset-0 overflow-hidden">
+            <i class="fas fa-leaf text-emerald-900 absolute opacity-5 text-9xl top-20 left-10 transform rotate-45"></i>
+            <i class="fas fa-leaf text-emerald-900 absolute opacity-5 text-8xl bottom-20 right-10 transform -rotate-12"></i>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gray-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 text-center z-10" data-aos="zoom-in">
+            <p class="text-gray-500 tracking-[0.5em] mb-4">0415 文本解讀</p>
+            <h1 class="text-6xl md:text-8xl mb-6 text-gray-900 drop-shadow-lg">嵇康彈奏</h1>
+            <div class="w-24 h-1 bg-red-800 mx-auto mb-8"></div>
+            <p class="text-xl md:text-2xl text-gray-600 italic max-w-2xl mx-auto">
+                「目送歸鴻，手揮五弦。俯仰自得，遊心太玄。」
+            </p>
+            
+            <div class="mt-12 flex justify-center gap-8">
+                <div class="flex flex-col items-center group cursor-pointer">
+                    <div class="w-16 h-16 rounded-full border-2 border-gray-800 flex items-center justify-center mb-2 group-hover:bg-gray-800 group-hover:text-white transition">
+                        <i class="fas fa-music text-2xl"></i>
+                    </div>
+                    <span class="text-sm">音樂家</span>
+                </div>
+                <div class="flex flex-col items-center group cursor-pointer">
+                    <div class="w-16 h-16 rounded-full border-2 border-gray-800 flex items-center justify-center mb-2 group-hover:bg-gray-800 group-hover:text-white transition">
+                        <i class="fas fa-book-open text-2xl"></i>
+                    </div>
+                    <span class="text-sm">文學家</span>
+                </div>
+                <div class="flex flex-col items-center group cursor-pointer">
+                    <div class="w-16 h-16 rounded-full border-2 border-gray-800 flex items-center justify-center mb-2 group-hover:bg-gray-800 group-hover:text-white transition">
+                        <i class="fas fa-brain text-2xl"></i>
+                    </div>
+                    <span class="text-sm">思想家</span>
+                </div>
+            </div>
+            
+             <div class="mt-16 animate-bounce">
+                <a href="#bio" class="text-gray-400 hover:text-gray-800 transition">
+                    <i class="fas fa-chevron-down text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 生平概述 Section -->
+    <section id="bio" class="py-20 bg-white relative">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl text-center mb-16 artistic-font border-b-2 border-gray-200 pb-4 inline-block mx-auto" data-aos="fade-up">嵇康的生平概述</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-[#fcfbf9] p-8 rounded-xl border border-gray-100 shadow-sm hover-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-yellow-600 text-4xl mb-4"><i class="fas fa-id-card"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">基本資料</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        嵇康是曹魏末期著名的文學家、思想家和音樂家。竹林七賢的精神領袖。著有〈養生論〉、〈聲無哀樂論〉、〈琴賦〉等。
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-[#fcfbf9] p-8 rounded-xl border border-gray-100 shadow-sm hover-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-orange-600 text-4xl mb-4"><i class="fas fa-user-astronaut"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">外貌與個性</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        以俊美的外貌、放蕩不羈的個性聞名。知識卓越，性格剛烈，崇尚老莊，越名教而任自然。
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-[#fcfbf9] p-8 rounded-xl border border-gray-100 shadow-sm hover-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-rose-600 text-4xl mb-4"><i class="fas fa-heart"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">婚姻背景</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        與魏宗室聯姻，娶曹操曾孫女（沛王曹林之女）長樂亭主為妻。
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-[#fcfbf9] p-8 rounded-xl border border-gray-100 shadow-sm hover-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-pink-600 text-4xl mb-4"><i class="fas fa-scroll"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">官職</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        官至中散大夫，世稱「嵇中散」。
+                    </p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-[#fcfbf9] p-8 rounded-xl border border-gray-100 shadow-sm hover-card col-span-1 md:col-span-2 lg:col-span-1 lg:col-start-2" data-aos="fade-up" data-aos-delay="500">
+                    <div class="text-purple-600 text-4xl mb-4"><i class="fas fa-skull-crossbones"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">死亡</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        因與鍾會的政治衝突及呂安事件被構陷，最終被司馬昭處死。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 著作思想 Section -->
+    <section id="works" class="py-20 bg-[#f0eee9]">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl text-center mb-12 artistic-font" data-aos="fade-right">主要思想與著作</h2>
+            
+            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden" data-aos="zoom-in">
+                <!-- Tabs Header -->
+                <div class="flex border-b border-gray-200">
+                    <button class="flex-1 py-4 text-xl font-bold text-gray-500 hover:bg-gray-50 transition active-tab bg-emerald-50 text-emerald-800" onclick="openTab(event, 'yangsheng')">
+                        〈養生論〉
+                    </button>
+                    <button class="flex-1 py-4 text-xl font-bold text-gray-500 hover:bg-gray-50 transition" onclick="openTab(event, 'music')">
+                        〈聲無哀樂論〉
+                    </button>
+                </div>
+
+                <!-- Tab Content: 養生論 -->
+                <div id="yangsheng" class="tab-content active p-8 md:p-12">
+                    <div class="flex flex-col md:flex-row gap-8 items-center">
+                        <div class="md:w-1/3 text-center">
+                            <i class="fas fa-seedling text-8xl text-emerald-700 opacity-80"></i>
+                            <div class="mt-4 text-emerald-800 font-bold">形神共養</div>
+                        </div>
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-bold mb-4 text-emerald-900">養生的必要與重要性</h3>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start"><i class="fas fa-check mt-1 mr-2 text-emerald-500"></i><span>主張<strong>形神共養</strong>，尤重「養神」。</span></li>
+                                <li class="flex items-start"><i class="fas fa-check mt-1 mr-2 text-emerald-500"></i><span><strong>防患未然</strong>：養生應見微知著，防微杜漸。</span></li>
+                                <li class="flex items-start"><i class="fas fa-check mt-1 mr-2 text-emerald-500"></i><span><strong>持之以恆</strong>：養生須通達明理，並長期堅持。</span></li>
+                                <li class="flex items-start"><i class="fas fa-check mt-1 mr-2 text-emerald-500"></i><span><strong>方法</strong>：不營「名位」以「保神」，不貪「厚味」以「全身」，只要「導養得理」，就可長壽。</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Content: 聲無哀樂論 -->
+                <div id="music" class="tab-content p-8 md:p-12">
+                    <div class="flex flex-col md:flex-row gap-8 items-center">
+                        <div class="md:w-1/3 text-center">
+                            <i class="fas fa-music text-8xl text-indigo-700 opacity-80"></i>
+                            <div class="mt-4 text-indigo-800 font-bold">音樂獨立性</div>
+                        </div>
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-bold mb-4 text-indigo-900">反對音樂政治化</h3>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start"><i class="fas fa-quote-left mt-1 mr-2 text-indigo-500"></i><span><strong>核心觀點</strong>：音樂本身的變化（美/不美）與人的情感（哀/樂）毫無關係。</span></li>
+                                <li class="flex items-start"><i class="fas fa-quote-left mt-1 mr-2 text-indigo-500"></i><span><strong>誘導作用</strong>：人的哀樂是心中先有的，音樂只是起著誘導和媒介的作用，將其表現出來。</span></li>
+                                <li class="flex items-start"><i class="fas fa-quote-left mt-1 mr-2 text-indigo-500"></i><span><strong>批判</strong>：大膽反對兩漢以來把音樂簡單等同於政治教化，完全無視音樂的藝術性。</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 世說新語 Section (Expanded) -->
+    <section id="shishuo" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="bg-gray-800 text-white px-3 py-1 text-sm rounded-full mb-4 inline-block">志人小說巔峰</span>
+                <h2 class="text-4xl artistic-font mb-4" data-aos="fade-up">《世說新語》內容與特色</h2>
+                <p class="text-gray-600">「三十六門，以類相從」</p>
+            </div>
+
+            <!-- Content Structure Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+                <!-- Left: 經與緯 Detailed List -->
+                <div data-aos="fade-right">
+                    <h3 class="text-2xl font-bold mb-6 border-l-4 border-red-800 pl-4">內容架構</h3>
+                    <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                        <div class="space-y-6">
+                            <!-- 德行 -->
+                            <div>
+                                <h4 class="font-bold text-lg text-red-900 border-b border-red-200 mb-2 inline-block">經：德行</h4>
+                                <p class="text-sm text-gray-700 leading-relaxed">
+                                    <span class="font-bold text-gray-900">緯（篇目）：</span>方正、雅量、品藻、容止、自新、企羨、棲逸、賢媛、任誕、簡傲、儉嗇、汰侈、忿狷、讒險、尤悔惑溺、讎隙
+                                </p>
+                            </div>
+                            <!-- 言語 -->
+                            <div>
+                                <h4 class="font-bold text-lg text-blue-900 border-b border-blue-200 mb-2 inline-block">經：言語</h4>
+                                <p class="text-sm text-gray-700 leading-relaxed">
+                                    <span class="font-bold text-gray-900">緯（篇目）：</span>規箴、夙慧、排調、輕詆
+                                </p>
+                            </div>
+                            <!-- 政事 -->
+                            <div>
+                                <h4 class="font-bold text-lg text-emerald-900 border-b border-emerald-200 mb-2 inline-block">經：政事</h4>
+                                <p class="text-sm text-gray-700 leading-relaxed">
+                                    <span class="font-bold text-gray-900">緯（篇目）：</span>識鑒、賞譽、寵禮、假譎、黜免
+                                </p>
+                            </div>
+                            <!-- 文學 -->
+                            <div>
+                                <h4 class="font-bold text-lg text-purple-900 border-b border-purple-200 mb-2 inline-block">經：文學</h4>
+                                <p class="text-sm text-gray-700 leading-relaxed">
+                                    <span class="font-bold text-gray-900">緯（篇目）：</span>捷悟、豪爽、傷逝、術解、巧藝、紕漏
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Wei-Jin Spirit -->
+                <div data-aos="fade-left">
+                    <h3 class="text-2xl font-bold mb-6 border-l-4 border-blue-800 pl-4">魏晉風流特色</h3>
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-700">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-lg">談玄之風</h4>
+                                <p class="text-gray-600 text-sm mb-1">主要在於辨析名理，標榜虛玄。</p>
+                                <p class="text-xs text-blue-600 bg-blue-50 inline-block px-2 py-1 rounded">方式：一人主講、二人論辯、多人座談</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-700">
+                                <i class="fas fa-gavel"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-lg">品評之風</h4>
+                                <p class="text-gray-600 text-sm">對人物品性、才能、容止、風度等加以評鑑，定其高下，謂之「品題」。</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-700">
+                                <i class="fas fa-wine-glass"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-lg">任誕之風</h4>
+                                <p class="text-gray-600 text-sm mb-1">亂世中明哲保身，於是打開了逾越名教、任性放誕的風氣。</p>
+                                <p class="text-xs text-blue-600 bg-blue-50 inline-block px-2 py-1 rounded">形象：酗酒、裸體、幽隱、率真</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ji Kang in Shishuo Section (Refined) -->
+    <section id="ji-in-shishuo" class="py-20 bg-gray-900 text-gray-200">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl font-bold mb-10 text-center text-white artistic-font" data-aos="fade-up">《世說新語》中的嵇康</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4 text-center mb-12">
+                <div class="p-6 border border-gray-700 rounded bg-gray-800 hover:bg-gray-700 transition group" data-aos="flip-up" data-aos-delay="0">
+                    <div class="text-2xl font-bold text-yellow-500 mb-2">容止篇</div>
+                    <div class="text-sm text-gray-300">嵇康的容貌</div>
+                </div>
+                <div class="p-6 border border-gray-700 rounded bg-gray-800 hover:bg-gray-700 transition group" data-aos="flip-up" data-aos-delay="100">
+                    <div class="text-2xl font-bold text-yellow-500 mb-2">德行篇</div>
+                    <div class="text-sm text-gray-300">嵇康的性格</div>
+                </div>
+                <div class="p-6 border border-gray-700 rounded bg-gray-800 hover:bg-gray-700 transition group" data-aos="flip-up" data-aos-delay="200">
+                    <div class="text-2xl font-bold text-yellow-500 mb-2">簡傲篇</div>
+                    <div class="text-sm text-gray-300">嵇康的缺點</div>
+                </div>
+                <div class="p-6 border border-gray-700 rounded bg-gray-800 hover:bg-gray-700 transition group" data-aos="flip-up" data-aos-delay="300">
+                    <div class="text-2xl font-bold text-yellow-500 mb-2">任誕篇</div>
+                    <div class="text-sm text-gray-300">竹林七賢的組成</div>
+                </div>
+                <div class="p-6 border-2 border-red-600 rounded bg-gray-800 hover:bg-gray-700 transition group relative overflow-hidden" data-aos="flip-up" data-aos-delay="400">
+                    <div class="absolute top-0 right-0 bg-red-600 text-white text-xs px-2 py-1">重點</div>
+                    <div class="text-2xl font-bold text-red-500 mb-2">雅量篇</div>
+                    <div class="text-sm text-gray-300">臨刑東市<br>彈奏〈廣陵散〉</div>
+                </div>
+            </div>
+
+            <!-- 雅量篇解讀 (New Feature) -->
+            <div class="max-w-4xl mx-auto bg-gray-800 rounded-xl p-8 border border-gray-700 shadow-2xl" data-aos="zoom-in">
+                <h4 class="text-xl text-emerald-400 mb-4 font-bold border-b border-gray-600 pb-2"><i class="fas fa-search-plus mr-2"></i>【雅量篇】解讀</h4>
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="flex-1">
+                        <div class="text-red-400 font-bold mb-2">司馬昭的心態</div>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            嵇康被處死後，司馬昭不久也感到後悔。因為嵇康畢竟是個有才學的名士，當時司馬昭只是為了嫉才而殺了他，顯得心胸狹小，<strong class="text-white">缺少雅量</strong>。
+                        </p>
+                    </div>
+                    <div class="hidden md:block w-px bg-gray-600"></div>
+                    <div class="flex-1">
+                        <div class="text-emerald-400 font-bold mb-2">嵇康的心態</div>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            嵇康在臨刑時，也感慨自己「吝嗇」，不捨得將〈廣陵散〉交給袁孝尼，使它從此失傳。他關注的是藝術的傳承而非死亡，這才是真正的<strong class="text-white">雅量</strong>。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 廣陵絕響 Timeline Section -->
+    <section id="event" class="py-20 bg-[#e8e4dc] overflow-hidden">
+        <div class="container mx-auto px-4 relative">
+            <h2 class="text-5xl text-center mb-20 artistic-font text-gray-900" data-aos="zoom-in">嵇康彈奏．廣陵絕響</h2>
+
+            <!-- Timeline Container -->
+            <div class="relative max-w-4xl mx-auto">
+                <!-- Vertical Line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-400"></div>
+
+                <!-- Event 1 -->
+                <div class="relative mb-16 flex items-center w-full" data-aos="fade-right">
+                    <div class="w-1/2 pr-8 text-right">
+                        <h3 class="text-xl font-bold text-gray-800">事件發生前</h3>
+                        <p class="text-gray-600 mt-2">袁孝尼曾向嵇康請求學習《廣陵散》琴曲，但嵇康並未同意。</p>
+                    </div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gray-600 rounded-full border-4 border-[#e8e4dc]"></div>
+                    <div class="w-1/2 pl-8"></div>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="relative mb-16 flex items-center w-full" data-aos="fade-left">
+                    <div class="w-1/2 pr-8 text-right"></div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-red-600 rounded-full border-4 border-[#e8e4dc] animate-pulse"></div>
+                    <div class="w-1/2 pl-8 text-left">
+                        <h3 class="text-xl font-bold text-red-800">臨刑前 - 東市</h3>
+                        <p class="text-gray-700 mt-2 font-medium">嵇康即將在東市被處刑，但他<strong>神色不變</strong>。</p>
+                        <p class="text-gray-600 text-sm mt-1">向人要了一把琴，並彈奏了他所珍愛的琴曲《廣陵散》。</p>
+                    </div>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="relative mb-16 flex items-center w-full" data-aos="fade-right">
+                    <div class="w-1/2 pr-8 text-right">
+                        <h3 class="text-xl font-bold text-gray-800">彈奏結束後</h3>
+                        <div class="bg-white p-4 rounded-lg shadow-md mt-2 inline-block text-left relative">
+                            <i class="fas fa-quote-left text-gray-300 absolute top-2 left-2 text-xl"></i>
+                            <p class="text-gray-800 italic pl-6">「袁孝尼曾請求學習這首琴曲，我吝惜沒有給他，如今我死後，《廣陵散》這首曲子就要失傳了！」</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gray-600 rounded-full border-4 border-[#e8e4dc]"></div>
+                    <div class="w-1/2 pl-8"></div>
+                </div>
+
+                <!-- Event 4 -->
+                <div class="relative mb-16 flex items-center w-full" data-aos="fade-left">
+                    <div class="w-1/2 pr-8 text-right"></div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gray-600 rounded-full border-4 border-[#e8e4dc]"></div>
+                    <div class="w-1/2 pl-8 text-left">
+                        <h3 class="text-xl font-bold text-gray-800">行刑期間</h3>
+                        <p class="text-gray-600 mt-2"><strong>三千名太學生</strong>向朝廷上書，請求讓嵇康做他們的老師，但未被批准。</p>
+                    </div>
+                </div>
+
+                <!-- Event 5 -->
+                <div class="relative flex items-center w-full" data-aos="fade-up">
+                    <div class="w-1/2 pr-8 text-right">
+                        <h3 class="text-xl font-bold text-gray-800">行刑後不久</h3>
+                        <p class="text-gray-600 mt-2">晉文王司馬昭隨後對處死嵇康一事感到後悔。</p>
+                    </div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gray-800 rounded-full border-4 border-[#e8e4dc]"></div>
+                    <div class="w-1/2 pl-8"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 文本分析 Section -->
+    <section id="analysis" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl text-center mb-16 artistic-font" data-aos="fade-down">文本特質分析</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Analysis Item 1 -->
+                <div class="border-2 border-gray-100 rounded-lg p-6 text-center hover:border-emerald-500 transition duration-300 group" data-aos="flip-left" data-aos-delay="100">
+                    <div class="w-16 h-16 mx-auto bg-gray-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-emerald-100 transition">
+                        <i class="fas fa-mountain text-2xl text-gray-600 group-hover:text-emerald-600"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-3">獨立不羈<br>特立獨行</h3>
+                    <p class="text-gray-600 text-sm">面臨死亡依然神色不變，專注於彈琴，可見其超脫生死、不畏強權的獨立人格。</p>
+                </div>
+
+                <!-- Analysis Item 2 -->
+                <div class="border-2 border-gray-100 rounded-lg p-6 text-center hover:border-indigo-500 transition duration-300 group" data-aos="flip-left" data-aos-delay="200">
+                    <div class="w-16 h-16 mx-auto bg-gray-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-indigo-100 transition">
+                        <i class="fas fa-guitar text-2xl text-gray-600 group-hover:text-indigo-600"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-3">藝術造詣深厚<br>珍視藝術</h3>
+                    <p class="text-gray-600 text-sm">臨刑前仍不忘彈奏，並對其即將失傳感到惋惜，體現了他對藝術的極度重視。</p>
+                </div>
+
+                <!-- Analysis Item 3 -->
+                <div class="border-2 border-gray-100 rounded-lg p-6 text-center hover:border-red-500 transition duration-300 group" data-aos="flip-left" data-aos-delay="300">
+                    <div class="w-16 h-16 mx-auto bg-gray-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-red-100 transition">
+                        <i class="fas fa-balance-scale text-2xl text-gray-600 group-hover:text-red-600"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-3">堅持原則<br>不輕易妥協</h3>
+                    <p class="text-gray-600 text-sm">即使面對死亡威脅，也不迎合當權者。拒絕將〈廣陵散〉傳授給不適合的人（袁孝尼）。</p>
+                </div>
+
+                <!-- Analysis Item 4 -->
+                <div class="border-2 border-gray-100 rounded-lg p-6 text-center hover:border-amber-500 transition duration-300 group" data-aos="flip-left" data-aos-delay="400">
+                    <div class="w-16 h-16 mx-auto bg-gray-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-amber-100 transition">
+                        <i class="fas fa-users text-2xl text-gray-600 group-hover:text-amber-600"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-3">極高的聲望<br>與感召力</h3>
+                    <p class="text-gray-600 text-sm">三千太學生上書請求以他為師，證明他在當時知識分子群體中擁有的巨大影響力。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Discussion -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-2xl mb-8 artistic-font"><i class="fas fa-comments mr-2"></i>問題討論</h3>
+            <div class="max-w-2xl mx-auto bg-gray-700 p-8 rounded-lg">
+                <p class="text-lg leading-relaxed text-gray-300">
+                    「如果你是嵇康，在臨刑前會選擇將《廣陵散》傳授給他人以免失傳，還是像他一樣堅持原則？」
+                </p>
+            </div>
+            <div class="mt-8 text-gray-500 text-sm">
+                Made with <i class="fas fa-code"></i> &amp; Ink
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // 初始化 AOS 動畫
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Tabs 切換功能
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            
+            // 隱藏所有內容
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+                tabcontent[i].style.display = "none";
+            }
+            
+            // 移除所有按鈕的 active 樣式
+            tablinks = document.getElementsByTagName("button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("bg-emerald-50", "text-emerald-800", "active-tab");
+            }
+            
+            // 顯示當前內容
+            document.getElementById(tabName).style.display = "block";
+            setTimeout(() => {
+                document.getElementById(tabName).classList.add("active");
+            }, 10);
+            
+            // 設置當前按鈕樣式
+            evt.currentTarget.classList.add("bg-emerald-50", "text-emerald-800", "active-tab");
+        }
+
+        // 手機版選單切換
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // 平滑滾動
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                menu.classList.add('hidden'); // 點擊後關閉手機選單
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
